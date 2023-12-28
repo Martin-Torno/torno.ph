@@ -32,8 +32,50 @@ else{
     }
 
 // MIENTRAS LA MONEDA SEA DOLAR//
-let moneda = prompt("Ingrese tipo de moneda (usd)");
-while(moneda != "usd") {
-        alert("Solo se admiten dolares");
+let moneda = prompt("Ingrese tipo de moneda");
+while(moneda != "peso") {
+        alert("Solo se admiten pesos");
     }
 
+//CONSTRUYO CLASE PARA PEDIR CANTIDAD DE HORAS Y PRECIO//
+class Sesion{
+  constructor(horas, precio){
+    this.horas = horas;
+    this.precio = precio;
+  }
+}
+const sesion = [];
+//ITERO HASTA 6 HORAS Y LE PONGO PRECIO A LAS SESIONES DESDE 1 HORA A 6 HORAS//
+
+for (let index = 1; index <= 6; index++) {
+    let horas = prompt("Ingrese cuantas horas");
+    let precio = Number(prompt("Ingrese el precio"));
+
+    let sesionPorHora = new Sesion(horas, precio);
+    sesion.push(sesionPorHora);
+  
+}
+
+console.log(sesion);
+
+
+// ARRAYS Y OBJETOS DE PRODUCTOS PARA VENDER//
+
+const productos = [{id: 1, articulo: "almanaque", precio: 1500},
+{id: 2, articulo: "iman", precio: 800},
+{id: 3, articulo: "retrato", precio: 1000}]
+
+console.log(almanaque.includes('afiche')); //CONSULTO SI ESTÁ INCLUIDO UN AFICHE//
+
+for (const producto of productos){
+    console.log(producto.id);
+    console.log(producto.articulo);
+    console.log(producto.precio);
+}
+
+//FUNCION PARA SUMAR MONTO DE LOS PRODUCTOS VENDIDOS//
+
+function vendidos(primerProducto, segundoProducto, tercerProducto){
+    return primerProducto + segundoProducto + tercerProducto;
+}
+console.log(vendidos(1500, 800, 1000));
