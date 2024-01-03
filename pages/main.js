@@ -6,25 +6,25 @@ alert(`¡Hola ${nombre}! hace click en aceptar y escribí cuántas horas de sesi
 
 //DECLARACIÓN DE VARIABLES PRECIOS POR HORA//
 let horas = parseInt(prompt("Cantidad de horas(solo número)"));
-let precio;
+let precio = parseInt;
 
 //SIMULADOR CALCULA PRECIO SEGÚN CANTIDAD DE HORAS//
 if(horas === 1){
     alert(`El precio por ${horas} H es de ${precio = 3000}`);
 }
-if(horas === 2){
+else if(horas === 2){
     alert(`El precio por ${horas} H es de ${precio = 6000}`);
 }
-if(horas === 3){
+else if(horas === 3){
     alert(`El precio por ${horas} H tiene una promoción al valor de ${precio = 8200}`);
 }
-if(horas === 4){
+else if(horas === 4){
     alert(`El precio por ${horas} H tiene una promoción al valor de ${precio = 11000}`);
 }
-if(horas === 5){
+else if(horas === 5){
     alert(`El precio por ${horas} H tiene una promoción al valor de ${precio = 11200}`);
 }
-if(horas === 6){
+else if(horas === 6){
         alert(`El precio por ${horas} H tiene una promoción al valor de ${precio = 17300}`);
     }
 else{
@@ -32,7 +32,10 @@ else{
     }
 
 // MIENTRAS LA MONEDA SEA DOLAR//
-let moneda = prompt("Ingrese tipo de moneda");
+let moneda = String;
+do{
+    moneda = prompt("Indique cual es el tipo de moneda");
+}
 while(moneda != "peso") {
         alert("Solo se admiten pesos");
     }
@@ -65,7 +68,7 @@ const productos = [{id: 1, articulo: "almanaque", precio: 1500},
 {id: 2, articulo: "iman", precio: 800},
 {id: 3, articulo: "retrato", precio: 1000}]
 
-console.log(almanaque.includes('afiche')); //CONSULTO SI ESTÁ INCLUIDO UN AFICHE//
+console.log(productos.some(producto => producto.articulo === "afiche")); //CONSULTO SI ESTÁ INCLUIDO UN AFICHE//
 
 for (const producto of productos){
     console.log(producto.id);
@@ -79,3 +82,17 @@ function vendidos(primerProducto, segundoProducto, tercerProducto){
     return primerProducto + segundoProducto + tercerProducto;
 }
 console.log(vendidos(1500, 800, 1000));
+
+//FORMULARIO DE PAGINA CONTACTO AUN SIN VINCULAR CON HTML CONTACTO//
+
+let formulario = document.getElementById("formulario");
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault(); // NO SE RECARGA EL FORMULARIO//
+    let inputs = e.target.children;
+    alert(inputs[0].value);
+    alert(inputs[1].value);
+    if(!inputs[0].value.includes("@")){
+        inputs[0].value = "";
+        alert("El campo debe tener el @");
+    }
+    });
