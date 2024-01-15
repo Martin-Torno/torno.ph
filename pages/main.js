@@ -1,37 +1,45 @@
+//CALCULAR PRECIO POR HORAS (DOM)
 
-//SALUDO E IDENTIFICADOR DE NOMBRE//
-alert("Bienvenido a Torno PH");
-let nombre = prompt("Ingresa tu nombre");
-alert(`¡Hola ${nombre}! hace click en aceptar y escribí cuántas horas de sesión fográfica necesitás`);
+const boton = document.getElementById("boton");
+const hora = document.getElementsByName("hora");
 
-//DECLARACIÓN DE VARIABLES PRECIOS POR HORA//
-let horas = parseInt(prompt("Cantidad de horas(solo número)"));
-let precio = parseInt;
 
-//SIMULADOR CALCULA PRECIO SEGÚN CANTIDAD DE HORAS//
-if(horas === 1){
-    alert(`El precio por ${horas} H es de ${precio = 3000}`);
-}
-else if(horas === 2){
-    alert(`El precio por ${horas} H es de ${precio = 6000}`);
-}
-else if(horas === 3){
-    alert(`El precio por ${horas} H tiene una promoción al valor de ${precio = 8200}`);
-}
-else if(horas === 4){
-    alert(`El precio por ${horas} H tiene una promoción al valor de ${precio = 11000}`);
-}
-else if(horas === 5){
-    alert(`El precio por ${horas} H tiene una promoción al valor de ${precio = 11200}`);
-}
-else if(horas === 6){
-        alert(`El precio por ${horas} H tiene una promoción al valor de ${precio = 17300}`);
+//funcion al hacer click
+boton.addEventListener("click", hora);
+
+hora.addEventListener("keyup", (e) => {
+    if(e.key === "1"){
+        calculador.innerHTML = "<h1>El precio por 1 hora es $3000</h1>";
+        calculador.className = "titulo"
     }
-else{
-        alert("El servicio de fotografía es de 1 a 6 horas");
+    else if(e.key === "2"){
+        calculador.innerHTML = "<h1>El precio por 2 horas es $6000</h1>";
+        calculador.className = "titulo"
     }
-
+    else if(e.key === "3"){
+        calculador.innerHTML = "<h1>El precio por 3 horas tiene una promoción al valor de $8200</h1>";
+        calculador.className = "titulo"
+    }
+    else if(e.key === "4"){
+        calculador.innerHTML = "<h1>El precio por 4 horas tiene una promoción al valor de $11000</h1>";
+        calculador.className = "titulo"
+    }
+    else if(e.key === "5"){
+        calculador.innerHTML = "<h1>El precio por 5 horas tiene una promoción al valor de $14000</h1>";
+        calculador.className = "titulo"
+    }
+    else if(e.key === "6"){
+        calculador.innerHTML = "<h1>El precio por 6 horas tiene una promoción al valor de $17300</h1>";
+        calculador.className = "titulo"
+        }
+    else{
+        calculador.innerHTML = "<h1>El servicio de sesión fotográfica es de 1 a 6 horas</h1>";
+        calculador.className = "titulo"
+        }
+        });
 // MIENTRAS LA MONEDA SEA DOLAR//
+
+/*
 let moneda = String;
 do{
     moneda = prompt("Indique cual es el tipo de moneda");
@@ -96,3 +104,4 @@ formulario.addEventListener("submit", (e) => {
         alert("El campo debe tener el @");
     }
     });
+*/
