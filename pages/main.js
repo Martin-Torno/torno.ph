@@ -22,14 +22,6 @@ for (let index = 1; index <= 6; index++) {
 console.log(sesion);
 */
 
-//FUNCION PARA SUMAR MONTO DE LOS PRODUCTOS VENDIDOS//
-/*
-function vendidos(primerProducto, segundoProducto, tercerProducto){
-    return primerProducto + segundoProducto + tercerProducto;
-}
-console.log(vendidos(1500, 800, 1000));
-*/
-
 //CARRITO DE COMPRAS
 //ARRAY DE PRODUCTOS
 const productos = [ 
@@ -38,8 +30,6 @@ const productos = [
 {id: 3, articulo: "album", precio: 4500},
 ];
 console.log(productos.some(producto => producto.articulo === "afiche")); //CONSULTO SI ESTÁ INCLUIDO UN AFICHE//
-
-
 
 //ARRAY PARA AGREGAR AL CARRITO
 const compras = [];
@@ -76,41 +66,31 @@ seleccionados.addEventListener("click", () => {
     })
 })
 
-const boton = document.getElementById("boton");
-const hora = document.getElementsById("hora");
-
-
-//funcion al hacer click
-boton.addEventListener("click", hora);
-hora.addEventListener("keyup", (e) => {
-    if(e.key === "1"){
-        calculador.innerHTML = "<h1>El precio por 1 hora es $3000</h1>";
-        calculador.className = "titulo"
-    }
-    else if(e.key === "2"){
-        calculador.innerHTML = "<h1>El precio por 2 horas es $6000</h1>";
-        calculador.className = "titulo"
-    }
-    else if(e.key === "3"){
-        calculador.innerHTML = "<h1>El precio por 3 horas tiene una promoción al valor de $8200</h1>";
-        calculador.className = "titulo"
-    }
-    else if(e.key === "4"){
-        calculador.innerHTML = "<h1>El precio por 4 horas tiene una promoción al valor de $11000</h1>";
-        calculador.className = "titulo"
-    }
-    else if(e.key === "5"){
-        calculador.innerHTML = "<h1>El precio por 5 horas tiene una promoción al valor de $14000</h1>";
-        calculador.className = "titulo"
-    }
-    else if(e.key === "6"){
-        calculador.innerHTML = "<h1>El precio por 6 horas tiene una promoción al valor de $17300</h1>";
-        calculador.className = "titulo"
+//CALCULADOR DE PRECIOS POR HORA
+        const boton = document.getElementById("boton");
+        const hora = document.getElementById("hora");
+        const calculador = document.getElementById("calculador");
+        
+        boton.addEventListener("click", () => {
+            const horasIngresadas = parseInt(hora.value);
+        
+            if (horasIngresadas >= 1 && horasIngresadas <= 6) {
+                // calcular segun hora ingresada
+                const precio = calcularPrecio(horasIngresadas);
+                calculador.innerHTML = `<h1>El precio por ${horasIngresadas} horas es $${precio}</h1>`;
+                calculador.className = "titulo";
+            } else {
+                calculador.innerHTML = "<h1>El servicio de sesión fotográfica es de 1 a 6 horas</h1>";
+                calculador.className = "titulo";
+            }
+        });
+        
+        
+        // calcular precio segun cantidad de horas
+        function calcularPrecio(horas) {
+            const precios = [3000, 6000, 8200, 11000, 14000, 17300];
+            return precios[horas - 1];
         }
-    else{
-        calculador.innerHTML = "<h1>El servicio de sesión fotográfica es de 1 a 6 horas</h1>";
-        calculador.className = "titulo"
-        }});
 
 //FORMULARIO DE PAGINA CONTACTO AUN SIN VINCULAR CON HTML CONTACTO//
 /*

@@ -27,6 +27,10 @@ cite{
 label{
     color: rgb(167, 163, 163);
 }
+.bodyRed{
+    background-color: red;
+    background: linear-gradient(135deg, rgb(127, 1, 1) 23%, rgb(0, 7, 17) 100%);
+}
 .body{
     background-color: black;
     background: linear-gradient(135deg, rgb(8, 8, 8) 23%, rgb(43, 54, 69) 100%);
