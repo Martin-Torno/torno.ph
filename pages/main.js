@@ -44,15 +44,14 @@ seleccionados.addEventListener("click", () => {
 })
 
 //CALCULADOR DE PRECIOS POR HORA
-        const boton = document.getElementById("boton");
-        const hora = document.getElementById("hora");
-        const calculador = document.getElementById("calculador");
+    const boton = document.getElementById("boton");
+    const hora = document.getElementById("hora");
+    const calculador = document.getElementById("calculador");
         
         boton.addEventListener("click", () => {
             const horasIngresadas = parseInt(hora.value);
-
-            //CONDICION CON OPERADOR TERNARIO CON LIBRERIA SWEETALERT
-            horasIngresadas >= 1 && horasIngresadas <= 6
+//CONDICION CON OPERADOR TERNARIO CON LIBRERIA SWEETALERT
+        horasIngresadas >= 1 && horasIngresadas <= 6
             ? (() => {
                 const precio = calcularPrecio(horasIngresadas);
                 calculador.innerHTML = `<h1>El precio por ${horasIngresadas} horas es $${precio}</h1>`;
@@ -63,7 +62,7 @@ seleccionados.addEventListener("click", () => {
                     icon: "error",
                     title: "¡ERROR!",
                     text: "El servicio de sesión de fotos es de 1 a 6 horas",
-                  });
+                    });
             })();
         });
         // calcular precio segun cantidad de horas
@@ -71,31 +70,16 @@ seleccionados.addEventListener("click", () => {
             const precios = [3000, 6000, 8200, 11000, 14000, 17300];
             return precios[horas - 1];
         }
-
-        //PROMESAS CON FETCH
-        const api = document.getElementById("api");
-        fetch("./data.json")
-        .then(response => response.json())
-        .then((data) => {
-            data.forEach((contenido) => {
-                const li = document.createElement("li");
-                li.innerHTML = ` <h2>${contenido.id}</h2>
-                                <p>${contenido.articulo}</p>
-                                `;
-                                api.append(li);
-            });
-          });
-
-        /*
-        fetch("https://jsonplaceholder.typicode.com/posts")
-  .then((response) => response.json())
-  .then((response) => {
-    response.forEach((contenido) => {
-        li = document.createElement("li");
-        li.innerHTML = ` <h2>${contenido.title}</h2>
-                        <p>${contenido.body}</p>
-                        `;
-                        api.append(li);
-    });
+//PROMESAS CON FETCH
+fetch("https://jsonplaceholder.typicode.com/posts")
+.then((response) => response.json())
+.then((response) => {
+  response.forEach((contenido) => {
+    li = document.createElement("li");
+    li.innerHTML = ` <h2>${contenido.title}</h2>
+                    <p>${contenido.body}</p>
+                    `;
+                    api.append(li);
   });
-  */
+  });
+
